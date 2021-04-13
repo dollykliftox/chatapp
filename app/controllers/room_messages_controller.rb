@@ -4,9 +4,8 @@ class RoomMessagesController < ApplicationController
   def create
     @room_message = RoomMessage.create(user: current_user, room: @room, message: params[:room_message][:message])
     ActionCable.server.broadcast "room_channel",
-                                      room: @room,
-                                      room_message: @room_message
-    # RoomChannel.broadcast_to @room, @room_message
+                                      content: @room_message.message,
+                                      room: @room
   end
 
   private
