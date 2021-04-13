@@ -14,3 +14,10 @@ require("jquery");
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+$(function() {
+  $('#room_message_form').on('ajax:success', function(a, b,c ) {
+    $(this).find('input[type="text"]').val('');
+  });
+});
+
