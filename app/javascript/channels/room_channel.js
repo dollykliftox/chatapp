@@ -20,8 +20,7 @@ const RoomChannel = consumer.subscriptions.create("RoomChannel", {
 
       $element.animate({ scrollTop: $element.prop("scrollHeight")}, 1000)
       var content = messageTemplate.children().clone(true, true);
-      
-        content.find('[data-role="user-avatar"]').attr('src', data["avatar"]["name"]);
+        content.find('[data-role="user-avatar"]').attr('src', data["avatar"]);
         content.find('[data-role="message-text"]').text(data["content"]);
         content.find('[data-role="message-date"]').text(data["updated_at"]);
         $element.append(content);
